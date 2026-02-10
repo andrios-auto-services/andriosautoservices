@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrio Auto Services | Elite Car Performance</title>
+    <title>Andreo Auto Services | Expert Car Care</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -14,19 +15,18 @@
     <div class="cursor-glow"></div>
 
     <nav>
-        <div class="logo">ANDRIO<span>.</span></div>
+        <div class="logo">ANDREO<span>.</span></div>
         <div class="nav-right">
-            <a href="services.html" class="nav-link">SERVICES</a>
             <a href="tel:0636850516" class="nav-number">0636850516</a>
         </div>
     </nav>
 
     <main class="hero">
         <div class="hero-content">
-            <h2 class="andreo-name">ANDREO MINNIE</h2>
-            <h1 class="main-title">ANDRIO</h1>
+            <h2 class="andreo-name">PREMIUM AUTO CARE</h2>
+            <h1 class="main-title">ANDREO</h1>
             <h1 class="red-title">AUTO SERVICES</h1>
-            <p class="hero-p">Exceptional repair services that keep you driving smoothly. Precision diagnostics, oil changes, and expert brake repairs.</p>
+            <p class="hero-p">Exceptional repair services that keep you driving smoothly. Focused expertise in Diagnostics, Oil Changes, and Brakes.</p>
             
             <div class="btns">
                 <a href="#book" class="btn-main">BOOK A SERVICE</a>
@@ -35,37 +35,41 @@
         </div>
 
         <div class="car-wrapper">
-            <img src="hero-car.png" id="car-img" alt="High Performance Vehicle">
+            <img src="hero-car.png" id="car-img" alt="Andreo Performance">
         </div>
     </main>
 
+    <section id="services" class="services-grid-section">
+        <div class="service-card"><h3>ENGINE DIAGNOSTIC</h3></div>
+        <div class="service-card red-card"><h3>OIL CHANGES</h3></div>
+        <div class="service-card"><h3>BRAKE REPAIR</h3></div>
+    </section>
+
     <section id="book" class="booking-section">
         <div class="form-container">
-            <h2 class="andreo-name">ANDREO'S WORKSHOP</h2>
-            <h1 class="main-title">REQUEST A <span class="red">QUOTE</span></h1>
+            <h1 class="main-title">REQUEST <span class="red">SERVICE</span></h1>
             
-            <form action="mailto:Minnieandreo18@gmail.com?subject=Car%20Service%20Inquiry" method="post" enctype="text/plain" class="booking-form">
+            <form action="mailto:Minnieandreo18@gmail.com?subject=Andreo%20Auto%20Booking" method="post" enctype="text/plain" class="booking-form">
                 <div class="form-group">
                     <input type="text" name="Client_Name" placeholder="Your Name" required>
-                    <input type="text" name="Car_Model" placeholder="Car Model (e.g. BMW 320i)" required>
+                    <input type="text" name="Car_Model" placeholder="Car Model" required>
                 </div>
                 <div class="form-group">
                     <select name="Service_Needed">
                         <option value="Engine Diagnostic">Engine Diagnostic</option>
                         <option value="Oil Change">Oil Change</option>
                         <option value="Brake Repair">Brake Repair</option>
-                        <option value="Other">Other Repairs</option>
                     </select>
-                    <input type="tel" name="Phone" placeholder="Your Phone Number" required>
+                    <input type="tel" name="Phone" placeholder="Phone Number" required>
                 </div>
-                <textarea name="Message" placeholder="Describe the issue Andreo should look at..."></textarea>
-                <button type="submit" class="btn-main">SUBMIT TO ANDREO</button>
+                <textarea name="Message" placeholder="Notes for Andreo..."></textarea>
+                <button type="submit" class="btn-main">SEND TO ANDREO</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Andrio Auto Services. Designed for Andreo Minnie.</p>
+        <p>&copy; 2026 Andreo Auto Services. 0636850516</p>
     </footer>
 
     <script src="script.js"></script>
