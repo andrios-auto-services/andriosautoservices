@@ -43,4 +43,21 @@ nav { padding: 40px 10%; position: absolute; width: 100%; z-index: 100; }
 .services { padding: 100px 10%; background: #080808; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .card { background: #111; padding: 40px; border-bottom: 3px solid var(--red); transition: 0.3s; }
+
 .card:hover { background: #1a1a1a; transform: scale(1.02); }
+/* Services Page Specifics */
+.services-detail { padding: 150px 10% 50px; text-align: center; }
+.detailed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 60px 0; }
+
+.service-box { 
+    background: #0f0f0f; padding: 40px; border-radius: 10px; border: 1px solid #222;
+    text-align: left; transition: 0.4s; position: relative;
+}
+
+.service-box:hover { border-color: var(--red); transform: translateY(-10px); }
+.service-num { color: var(--red); font-family: 'Syncopate'; font-size: 0.8rem; display: block; margin-bottom: 20px; }
+.service-box h3 { font-size: 1.5rem; margin-bottom: 15px; }
+.service-box p { color: #888; line-height: 1.6; }
+
+.cta-section { margin-top: 50px; }
+.red { color: var(--red); }
