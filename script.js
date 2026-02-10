@@ -1,31 +1,40 @@
-// 1. Entrance Animation
+gsap.registerPlugin(ScrollTrigger);
+
+// 1. Cinematic Entry
 const tl = gsap.timeline();
+tl.from(".main-title", { duration: 1.5, y: 100, opacity: 0, ease: "expo.out" })
+  .from(".red-title", { duration: 1.5, x: -100, opacity: 0, ease: "expo.out" }, "-=1.2")
+  .from(".hero-p, .btns", { duration: 1, opacity: 0, y: 20, stagger: 0.2 }, "-=1")
+  .from(".car-wrapper", { duration: 2, x: 200, opacity: 0, ease: "power4.out" }, "-=1.2");
 
-tl.from(".main-title", { duration: 1, y: 100, opacity: 0, ease: "power4.out" })
-  .from(".red-title", { duration: 1, x: -50, opacity: 0, ease: "power4.out" }, "-=0.7")
-  .from(".car-container", { duration: 1.5, x: 300, opacity: 0, ease: "power2.out" }, "-=1");
-
-// 2. Mouse Glow Movement
+// 2. Parallax Car & Cursor Glow
 document.addEventListener("mousemove", (e) => {
-    gsap.to(".cursor-glow", { x: e.clientX, y: e.clientY, duration: 0.5 });
+    const { clientX, clientY } = e;
     
-    // 3. Car Parallax Effect (The "Cool Visual")
-    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    // Cursor glow follow
+    gsap.to(".cursor-glow", { x: clientX, y: clientY, duration: 0.6 });
+
+    // Car tilt parallax
+    const xPos = (clientX / window.innerWidth - 0.5) * 30;
+    const yPos = (clientY / window.innerHeight - 0.5) * 30;
     
     gsap.to("#car-img", {
-        x: moveX * 2,
-        y: moveY * 2,
-        rotation: moveX * 0.2,
-        duration: 1
+        x: xPos,
+        y: yPos,
+        rotation: xPos * 0.05,
+        duration: 2,
+        ease: "power2.out"
     });
 });
 
-// 4. Subtle Floating for the Car
-gsap.to("#car-img", {
-    y: "-=15",
-    duration: 2,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
+// 10. Scroll Reveal for Form
+gsap.from(".form-container", {
+    scrollTrigger: {
+        trigger: ".booking-section",
+        start: "top 80%",
+    },
+    duration: 1.2,
+    y: 100,
+    opacity: 0,
+    ease: "power3.out"
 });
