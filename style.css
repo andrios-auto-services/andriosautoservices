@@ -1,63 +1,92 @@
-:root { --red: #e61e25; --black: #050505; }
-body { background: var(--black); color: white; margin: 0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+:root { 
+    --red: #e61e25; 
+    --dark: #050505; 
+    --gray: #111111;
+    --white: #ffffff;
+}
 
-/* Custom Cursor Glow */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body { 
+    background: var(--dark); 
+    color: var(--white); 
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden; 
+}
+
+/* 14. Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 10px; }
+
+/* 5. Cursor Glow */
 .cursor-glow {
-    position: fixed; width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(230, 30, 37, 0.15) 0%, transparent 70%);
+    position: fixed; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(230, 30, 37, 0.08) 0%, transparent 70%);
     pointer-events: none; z-index: 1; transform: translate(-50%, -50%);
 }
 
-nav { padding: 40px 10%; position: absolute; width: 100%; z-index: 100; }
-.logo { font-family: 'Syncopate'; font-size: 1.5rem; letter-spacing: 5px; }
+/* 9. Glassmorphism Nav */
+nav { 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 30px 10%; position: fixed; width: 100%; z-index: 100;
+    backdrop-filter: blur(10px); background: rgba(5, 5, 5, 0.8);
+}
+
+.logo { font-family: 'Syncopate'; font-size: 1.4rem; letter-spacing: 4px; font-weight: 700; }
 .logo span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 30px; }
+.nav-link { color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; font-weight: 700; }
 
-.hero { height: 100vh; display: flex; align-items: center; padding-left: 10%; position: relative; }
-
-.main-title { font-size: 8vw; line-height: 0.8; margin: 0; }
-.red-title { font-size: 6vw; color: var(--red); font-style: italic; margin: 0; text-shadow: 0 0 20px rgba(230,30,37,0.4); }
-
-.service-tags { margin: 20px 0; letter-spacing: 3px; color: #555; font-size: 0.8rem; }
-
-/* The Car in the Corner Effect */
-.car-container {
-    position: absolute; right: -10%; bottom: 0; width: 65%; height: 80%;
-    display: flex; align-items: flex-end; justify-content: flex-end;
-    overflow: hidden; pointer-events: none;
+.nav-number { 
+    color: white; text-decoration: none; font-weight: 900; 
+    border: 2px solid var(--red); padding: 8px 20px; border-radius: 50px;
 }
 
-#car-img {
-    width: 120%; height: auto; object-fit: contain;
-    filter: drop-shadow(-50px 0 100px black);
-    mask-image: linear-gradient(to left, black 70%, transparent 100%);
+/* Hero Section */
+.hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; }
+.andreo-name { color: var(--red); letter-spacing: 6px; font-size: 0.8rem; font-family: 'Syncopate'; margin-bottom: 15px; }
+.main-title { font-size: clamp(3rem, 8vw, 8rem); line-height: 0.8; margin: 0; font-weight: 900; }
+.red-title { font-size: clamp(2rem, 6vw, 6rem); color: var(--red); margin: 0; font-style: italic; font-weight: 900; }
+.hero-p { max-width: 450px; margin: 30px 0; color: #888; line-height: 1.8; font-size: 1rem; }
+
+/* Buttons */
+.btns { display: flex; gap: 20px; z-index: 10; }
+.btn-main { 
+    background: var(--red); color: white; padding: 20px 40px; text-decoration: none; 
+    font-weight: 900; border-radius: 4px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block; border: none;
 }
+.btn-sec { border: 1px solid white; color: white; padding: 20px 40px; text-decoration: none; font-weight: 900; border-radius: 4px; transition: 0.3s; }
+.btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(230, 30, 37, 0.5); }
 
-/* Button Animations */
-.btn-main {
-    background: var(--red); color: white; text-decoration: none;
-    padding: 20px 50px; display: inline-block; font-weight: 900;
-    border-radius: 4px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* Car Section */
+.car-wrapper {
+    position: absolute; right: 0; bottom: 0; width: 55%;
+    -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
+    pointer-events: none;
 }
-.btn-main:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(230,30,37,0.4); }
+#car-img { width: 100%; filter: brightness(0.8) contrast(1.1); }
 
-.services { padding: 100px 10%; background: #080808; }
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.card { background: #111; padding: 40px; border-bottom: 3px solid var(--red); transition: 0.3s; }
-
-.card:hover { background: #1a1a1a; transform: scale(1.02); }
-/* Services Page Specifics */
-.services-detail { padding: 150px 10% 50px; text-align: center; }
-.detailed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 60px 0; }
-
-.service-box { 
-    background: #0f0f0f; padding: 40px; border-radius: 10px; border: 1px solid #222;
-    text-align: left; transition: 0.4s; position: relative;
-}
-
-.service-box:hover { border-color: var(--red); transform: translateY(-10px); }
-.service-num { color: var(--red); font-family: 'Syncopate'; font-size: 0.8rem; display: block; margin-bottom: 20px; }
-.service-box h3 { font-size: 1.5rem; margin-bottom: 15px; }
-.service-box p { color: #888; line-height: 1.6; }
-
-.cta-section { margin-top: 50px; }
+/* Booking Form */
+.booking-section { padding: 120px 10%; background: #080808; position: relative; }
+.form-container { max-width: 900px; margin: 0 auto; }
 .red { color: var(--red); }
+
+.booking-form { margin-top: 60px; display: flex; flex-direction: column; gap: 25px; }
+.form-group { display: flex; gap: 25px; }
+.form-group input, .form-group select, .booking-form textarea {
+    flex: 1; padding: 20px; background: #121212; border: 1px solid #333;
+    color: white; font-size: 1rem; border-radius: 5px; transition: 0.3s;
+}
+.booking-form textarea { height: 180px; resize: none; }
+.booking-form input:focus, .booking-form textarea:focus { border-color: var(--red); outline: none; background: #1a1a1a; }
+
+footer { padding: 50px; text-align: center; font-size: 0.8rem; color: #444; border-top: 1px solid #111; }
+
+@media (max-width: 900px) {
+    .form-group { flex-direction: column; }
+    .hero { padding-top: 100px; align-items: flex-start; }
+    .car-wrapper { width: 90%; opacity: 0.3; }
+    .nav-link { display: none; }
+}
